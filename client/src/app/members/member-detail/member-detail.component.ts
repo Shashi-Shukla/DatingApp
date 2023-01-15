@@ -36,9 +36,9 @@ export class MemberDetailComponent implements OnInit {
     const imageUrls = [];
     for (const photo of this.member.photos) {
       imageUrls.push({
-        small: photo.url,
-        mediun: photo.url,
-        big: photo.url
+        small: photo?.url,
+        mediun: photo?.url,
+        big: photo?.url
       })
     }
     return imageUrls;
@@ -51,7 +51,9 @@ export class MemberDetailComponent implements OnInit {
     this.memberService.getMember(username).subscribe({
       next: member => {
         this.member = member;
+        console.log(member);
         this.galleryImages = this.getImages();
+        console.log(this.galleryImages);
       }
     })
   }
