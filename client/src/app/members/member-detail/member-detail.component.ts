@@ -37,7 +37,7 @@ export class MemberDetailComponent implements OnInit {
     for (const photo of this.member.photos) {
       imageUrls.push({
         small: photo?.url,
-        mediun: photo?.url,
+        medium: photo?.url,
         big: photo?.url
       })
     }
