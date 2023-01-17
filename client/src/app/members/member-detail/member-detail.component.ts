@@ -51,9 +51,7 @@ export class MemberDetailComponent implements OnInit {
     this.memberService.getMember(username).subscribe({
       next: member => {
         this.member = member;
-        console.log(member);
         this.galleryImages = this.getImages();
-        console.log(this.galleryImages);
       }
     })
   }
