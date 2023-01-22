@@ -19,14 +19,14 @@ export class DatePickerComponent implements ControlValueAccessor {
       dateInputFormat: 'DD MMMM YYYY'
     }
   }
+
   writeValue(obj: any): void {
   }
+
   registerOnChange(fn: any): void {
   }
-  registerOnTouched(fn: any): void {
-  }
 
-  ngOnInit(): void {
+  registerOnTouched(fn: any): void {
   }
 
   get control(): FormControl {
