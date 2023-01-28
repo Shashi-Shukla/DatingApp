@@ -66,7 +66,7 @@ export class MembersService {
     )
   }
 
-  getMember(username: String) {
+  getMember(username: string) {
     const member = [...this.memberCache.values()]
       .reduce((arr, elem) => arr.concat(elem.result), [])
       .find((member: Member) => member.userName === username);
@@ -104,4 +104,6 @@ export class MembersService {
 
     return getPaginatedResult<Member[]>(this.baseUrl + 'likes', params, this.http);
   }
+
+
 }

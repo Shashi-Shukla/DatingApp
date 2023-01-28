@@ -1,11 +1,11 @@
-import { MessageService } from './../../_services/message.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { Member } from 'src/app/_models/member';
-import { MembersService } from 'src/app/_services/members.service';
 import { Message } from 'src/app/_models/message';
+import { MembersService } from 'src/app/_services/members.service';
+import { MessageService } from 'src/app/_services/message.service';
 
 @Component({
   selector: 'app-member-detail',
@@ -13,7 +13,7 @@ import { Message } from 'src/app/_models/message';
   styleUrls: ['./member-detail.component.css']
 })
 export class MemberDetailComponent implements OnInit {
-  @ViewChild('memberTabs',{static:true}) memberTabs?: TabsetComponent;
+  @ViewChild('memberTabs', {static: true}) memberTabs?: TabsetComponent;
   member: Member = {} as Member;
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
@@ -21,11 +21,11 @@ export class MemberDetailComponent implements OnInit {
   messages: Message[] = [];
 
   constructor(private memberService: MembersService, private route: ActivatedRoute,
-    private messageService: MessageService) { }
+      private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.route.data.subscribe({
-      next: data => this.member =data['member']
+      next: data => this.member = data['member']
     })
 
     this.route.queryParams.subscribe({
@@ -44,6 +44,7 @@ export class MemberDetailComponent implements OnInit {
         preview: false
       }
     ]
+
     this.galleryImages = this.getImages();
   }
 
@@ -52,9 +53,9 @@ export class MemberDetailComponent implements OnInit {
     const imageUrls = [];
     for (const photo of this.member.photos) {
       imageUrls.push({
-        small: photo?.url,
-        medium: photo?.url,
-        big: photo?.url
+        small: photo.url,
+        medium: photo.url,
+        big: photo.url
       })
     }
     return imageUrls;
@@ -62,7 +63,7 @@ export class MemberDetailComponent implements OnInit {
 
   selectTab(heading: string) {
     if (this.memberTabs) {
-      this.memberTabs.tabs.find(x => x.heading === heading)!.active = true;
+      this.memberTabs.tabs.find(x => x.heading === heading)!.active = true
     }
   }
 
@@ -80,4 +81,5 @@ export class MemberDetailComponent implements OnInit {
       this.loadMessages();
     }
   }
+
 }

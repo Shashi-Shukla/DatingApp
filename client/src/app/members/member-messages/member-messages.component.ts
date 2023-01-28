@@ -1,7 +1,7 @@
-import { NgForm } from '@angular/forms';
-import { MessageService } from './../../_services/message.service';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Message } from 'src/app/_models/message';
+import { MessageService } from 'src/app/_services/message.service';
 
 @Component({
   selector: 'app-member-messages',
@@ -13,7 +13,6 @@ export class MemberMessagesComponent implements OnInit {
   @Input() username?: string;
   @Input() messages: Message[] = [];
   messageContent = '';
-
 
   constructor(private messageService: MessageService) { }
 
